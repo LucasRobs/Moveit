@@ -161,10 +161,10 @@ export default class MyDocument extends Document {
   
 ---
   ## Crie CSS module
-  - Cria a pasta ./styles/components
+  - Cria a pasta ./styles
   - Crie arquivos do tipo .module.css
   - importe no seu arquivo
   ```tsx
-import styles from '../styles/components/NomeDoArquivo.module.css'
+import styles from '../styles/NomeDoArquivo.module.css'
   ```
   - Use className={styles.NomeDoStilo} quando for referenciar um estilo
