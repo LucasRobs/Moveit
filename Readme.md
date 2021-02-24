@@ -109,3 +109,62 @@ a {
 }
 ```
 ---
+# Criando projeto Next.js
+## Iniciando
+- Inicie o projeto com :
+ ```sh
+ yarn create next-app "nome"
+ ```
+ - delete os seguintes arquivos
+   - pasta ./styles
+   - o conteudo da pasta ./public
+   - pasta ./pages/api
+   - delete todo html e inportações dentro de ./pages/index.js
+   - troque o tipo dos arquivos ./public/index.js & _app.js para .tsx
+   - crie uma pasta chamada ./src e coloque a pasta ./pages dento
+   - dentro da pasta ./src crie as pastas componentes e styles
+
+---
+## Intalando as dependencias de desenvolvimento
+- rode o comando
+```sh
+yarn add typescript @types/react @types/react-dom @types/node -D
+```
+---
+## Como adinionar fontos no next.js
+- crie um arquivo com o nome -document.tsx em ./src/pages
+- cole o código e coloque o links das fontes
+```tsx
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+
+export default class MyDocument extends Document {
+    render() {
+        return (
+            <Html>
+                <Head>
+                    //LINK..
+                </Head>
+
+                <body>
+                    <Main />
+                    <NextScript />
+                </body>
+                
+            </Html>
+        )
+    }
+}
+```
+## Notas
+- tudo que estiver dentro de _document.tsx é carregado apenas uma vez
+- tudo que estiver em _app.tsx e carregado apenas uma vez porem todos os valores são recalculados
+  
+---
+  ## Crie CSS module
+  - Cria a pasta ./styles/components
+  - Crie arquivos do tipo .module.css
+  - importe no seu arquivo
+  ```tsx
+import styles from '../styles/components/NomeDoArquivo.module.css'
+  ```
+  - Use className={styles.NomeDoStilo} quando for referenciar um estilo
