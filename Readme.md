@@ -168,3 +168,67 @@ export default class MyDocument extends Document {
 import styles from '../styles/NomeDoArquivo.module.css'
   ```
   - Use className={styles.NomeDoStilo} quando for referenciar um estilo
+
+---
+# Criando CONTEXTS
+- Crie a pasta src/contexts
+- Crie seu arquivo de context. Exemplo : nomeContext.tsx
+- Inicie o arquivo da seguinte forma:
+
+```tsx
+import { createContext, useState, ReactNode } from 'react';
+
+interface NomeContextData{
+  /*Exemplos de dados
+  atributo : number;
+  função : () => void;
+  objeto : nomeObjeto;
+  */
+}
+
+interface NomeProviderProps{
+  children: ReactNode;
+}
+
+export const NomeContext = createContext({} as NomeContextData)
+
+export function NomeProvider({children}: NomeProviderProps){
+  //Exemplo de useState...
+  //const [nome, setNome] = useState(null);
+  
+
+  //Exemplo de funções
+  //function nomeFuncao(){
+  //  setNome(nome + 1);
+  //}
+
+//retorne tudo
+  return(
+    <NomesContext.Provider 
+    value={{
+      nome,
+      atributo,
+      funcao
+    }}
+    >
+      {children}
+    </NomesContext.Provider>
+  )
+}
+  ```
+- Agora vá onde inicia o seu "contexto" e importe 
+```tsx
+import { NomeProvider } from '../contexts/NomesContext'
+```
+- Implemente o comtext colocanto a teg em volta do "contesto"
+```tsx
+<NomeProvider>
+    <Component {...pageProps} />
+</NomeProvider>
+```
+- agora dentros dos arquivoc que estão dentro do seu contexto. importe e use o Context
+```tsx
+import { useContext } from 'react';
+import { NomesContext } from '../contexts/NomesContext';
+const {...,...} = useContext(NomesContext);
+```
