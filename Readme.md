@@ -174,7 +174,27 @@ import styles from '../styles/NomeDoArquivo.module.css'
 - Crie a pasta src/contexts
 - Crie seu arquivo de context. Exemplo : nomeContext.tsx
 - Inicie o arquivo da seguinte forma:
+```tsx
+import {createContext, ReactNode} from "react";
 
+interface CountdouwnContextData{
+
+}
+
+interface CountdownProviderProps{
+  children: ReactNode;
+}
+
+export const CountdownContext = createContext({} as CountdouwnContextData)
+
+export function CountdownProvider({children}: CountdownProviderProps){
+  return(
+    <CountdownContext.Provider value={{}}>
+      {children}
+    </CountdownContext.Provider>
+  )
+}
+```
 ```tsx
 import { createContext, useState, ReactNode } from 'react';
 
